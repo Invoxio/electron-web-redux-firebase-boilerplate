@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import * as Actions from "../actions";
 
 import {
@@ -9,25 +10,52 @@ import {
   Link
 } from 'react-router-dom'
 
-import { withStyles } from "material-ui/styles";
-
 import Dashboard from "./Dashboard";
 import Login from "./Login";
 import Signup from "./SignUp";
 import Home from "./Home";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
   render() {
     const { classes } = this.props;
     return <div className="App">
       <Router>
         <div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/login">login</Link></li>
-            <li><Link to="/signup">signup</Link></li>
-            <li><Link to="/dashboard">dashboard</Link></li>
-          </ul>
+
+          <Navbar color="faded" light expand="md">
+            <NavbarBrand href="/">reactstrap</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink href="/">Home</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/login/">Login</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/signup/">signup</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/dashboard/">Dashboard</NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
 
           <hr/>
 

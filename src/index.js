@@ -7,6 +7,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import ReduxThunk from "redux-thunk";
+import 'bootstrap/dist/css/bootstrap.css';
 import reducers from "./reducers";
 
 import createHistory from "history/createBrowserHistory";
