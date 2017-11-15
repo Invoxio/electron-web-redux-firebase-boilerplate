@@ -5,7 +5,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
 import * as Actions from "../actions";
 
 import {
-  BrowserRouter as Router,
+  Switch,
   Route,
   Link
 } from 'react-router-dom'
@@ -33,7 +33,6 @@ class App extends Component {
   render() {
     const { classes } = this.props;
     return <div className="App">
-      <Router>
         <div>
 
           <Navbar color="faded" light expand="md">
@@ -59,12 +58,13 @@ class App extends Component {
 
           <hr/>
 
-          <Route exact path="/" component={Home}/>
-          <Route path="/login" component={Login}/>
-          <Route path="/signup" component={Signup}/>
-          <Route path="/dashboard" component={Dashboard}/>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/signup" component={Signup}/>
+            <Route path="/dashboard" component={Dashboard}/>
+          </Switch>
         </div>
-      </Router>
 
     </div>;
   }

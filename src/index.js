@@ -5,46 +5,28 @@ import App from "./containers/App";
 import registerServiceWorker from "./registerServiceWorker";
 
 import { createStore, applyMiddleware, compose } from "redux";
+import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from "react-redux";
 import ReduxThunk from "redux-thunk";
 import 'bootstrap/dist/css/bootstrap.css';
 import reducers from "./reducers";
 
-import createHistory from "history/createBrowserHistory";
-
-import firebase from "firebase";
-
 import Dashboard from "./containers/Dashboard";
 
-var config = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: ""
-};
+import configureStore from './store';
+import createHistory from 'history/createBrowserHistory';
 
-firebase.initializeApp(config);
-
+const initialState = {};
 const history = createHistory();
+const store = configureStore(initialState, history);
+const MOUNT_NODE = document.getElementById('root');
 
-const composeEnhancers =
-  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-        // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
-      })
-    : compose;
-
-const enhancer = composeEnhancers(applyMiddleware(ReduxThunk));
-
-const store = createStore(reducers, enhancer);
-
-// <App />
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
   </Provider>,
-  document.getElementById("root")
+  MOUNT_NODE
 );
 registerServiceWorker();
