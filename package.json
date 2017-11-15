@@ -1,9 +1,14 @@
 {
   "name": "react-redux-firebase-material-router-electron-starter",
   "description": "React, redux, firebase, material, react router, electron simple starter ",
-  "author": "me",
   "version": "0.1.0",
-  "private": true,
+  "repository": "git@github.com:Invoxio/react-redux-firebase-material-electron-starter.git",
+  "author": {
+    "name": "Timothy Meade",
+    "email": "tim@invoxio.com",
+    "url": "invoxio.com"
+  },
+  "license": "MIT",
   "dependencies": {
     "firebase": "^4.5.0",
     "history": "^4.7.2",
@@ -19,7 +24,8 @@
   },
   "devDependencies": {
     "electron": "^1.7.8",
-    "electron-builder": "^19.34.2"
+    "electron-builder": "^19.34.2",
+    "electron-devtools-installer": "^2.2.1"
   },
   "homepage": "./",
   "main": "src/electron-starter.js",
