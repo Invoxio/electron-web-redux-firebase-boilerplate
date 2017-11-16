@@ -38,7 +38,6 @@ const routeInitialState = fromJS({
  */
 export default function createReducer(asyncReducers) {
   return combineReducers({
-    form: formReducer,
     route: routeReducer,
     ...asyncReducers,
   });

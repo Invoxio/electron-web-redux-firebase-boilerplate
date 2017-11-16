@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+
 
 class Home extends Component {
   render() {
     return (
       <div>
         Home{' '}
-        <div>
+        {/* <div>
           <Button color="primary">primary</Button>{' '}
           <Button color="secondary">secondary</Button>{' '}
           <Button color="success">success</Button>{' '}
@@ -14,7 +14,7 @@ class Home extends Component {
           <Button color="warning">warning</Button>{' '}
           <Button color="danger">danger</Button>{' '}
           <Button color="link">link</Button>
-        </div>
+        </div> */}
       </div>
     );
   }
